@@ -1,31 +1,28 @@
-# notes
-android app
-# Stylish Infinite Notes
-
-A beautiful, fast, and infinite-space note-taking app for creative minds.
-
-## Features
-
-- Infinite canvas: spatially organize your notes for maximum freedom
-- Stylish note cards: pick your themes, fonts, and layouts
-- Lightning fast navigation and search
-- Responsive: works great on desktop and mobile
-- Markdown, rich text, and media support
-- [Planned] Sync notes across devices
+# Pastel Canvas – Infinite Notes App
 
 ## Quick Start
 
-```bash
-npm install
-npm run dev
-```
+1. **Install dependencies:**
+   ```sh
+   yarn install
+   yarn add expo@^50.0.0 react@18.2.0 react-native@0.73.0
+   ```
 
-## Tech Stack
+2. **Start Expo:**
+   ```sh
+   npx expo start
+   ```
 
-- React + TypeScript
-- [Canvas engine: Konva/Fabric.js/etc.]
-- Styled Components or Tailwind CSS
+3. **Open in Expo Go:**
+   - Scan the QR code with the Expo Go app on your phone.
 
-## License
+## Features
 
-MIT
+- Infinite canvas with pan/zoom
+- Draggable, editable note cards
+- Minimalist pastel UI
+- Mobile-first, touch-friendly
+
+## Tech
+
+Expo, React Native, Skia, Zustand, Reanimated, Markdown

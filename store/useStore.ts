@@ -11,10 +11,12 @@ type State = {
   notes: Note[];
   pan: { x: number; y: number };
   zoom: number;
+  searchQuery: string;
   addNote: (note: Omit<Note, 'id'>) => void;
   updateNote: (id: string, data: Partial<Note>) => void;
   setPan: (x: number, y: number) => void;
   setZoom: (zoom: number) => void;
+  setSearchQuery: (q: string) => void;
 };
 
 export const useStore = create<State>((set) => ({
@@ -23,6 +25,7 @@ export const useStore = create<State>((set) => ({
   ],
   pan: { x: 0, y: 0 },
   zoom: 1,
+  searchQuery: '',
   addNote: (note) => set((state) => ({
     notes: [
       ...state.notes,
@@ -34,4 +37,5 @@ export const useStore = create<State>((set) => ({
   })),
   setPan: (x, y) => set(() => ({ pan: { x, y } })),
   setZoom: (zoom) => set(() => ({ zoom })),
+  setSearchQuery: (q) => set(() => ({ searchQuery: q })),
 }));

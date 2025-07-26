@@ -1,8 +1,12 @@
 import React from 'react';
 import { View, Text, TextInput, StyleSheet } from 'react-native';
 import { theme } from '../theme';
+import { useStore } from '../store/useStore';
 
 export default function TopBar() {
+  const searchQuery = useStore((s) => s.searchQuery);
+  const setSearchQuery = useStore((s) => s.setSearchQuery);
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Pastel Canvas</Text>
@@ -10,6 +14,8 @@ export default function TopBar() {
         style={styles.search}
         placeholder="Search notes..."
         placeholderTextColor={theme.colors.text + '66'}
+        value={searchQuery}
+        onChangeText={setSearchQuery}
       />
     </View>
   );

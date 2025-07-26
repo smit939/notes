@@ -15,6 +15,7 @@ export default function Canvas() {
   const zoom = useStore((s) => s.zoom);
   const setPan = useStore((s) => s.setPan);
   const setZoom = useStore((s) => s.setZoom);
+  const searchQuery = useStore((s) => s.searchQuery);
 
   // Gesture state
   const lastPan = React.useRef({ x: pan.x, y: pan.y });
@@ -62,13 +63,24 @@ export default function Canvas() {
     }
   }, [pan, zoom]);
 
+  // Filter notes by search query
+  const filteredNotes = searchQuery
+    ? notes.filter((n) => n.content.toLowerCase().includes(searchQuery.toLowerCase()))
+    : notes;
+
   return (
     <PanGestureHandler onGestureEvent={onPanGestureEvent} minDist={2} avgTouches>
       <PinchGestureHandler onGestureEvent={onPinchGestureEvent}>
         <SkiaCanvas style={styles.canvas} onDraw={drawGrid}>
           {/* Render notes */}
-          {notes.map((note) => (
-            <NoteCard key={note.id} note={note} pan={pan} zoom={zoom} />
+          {filteredNotes.map((note) => (
+            <NoteCard
+              key={note.id}
+              note={note}
+              pan={pan}
+              zoom={zoom}
+              highlight={!!searchQuery}
+            />
           ))}
         </SkiaCanvas>
       </PinchGestureHandler>
