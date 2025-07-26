@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "@expo/vector-icons": "^14.1.0",
+    "@shopify/react-native-skia": "^2.1.1",
+    "react-native-gesture-handler": "^2.27.2",
+    "react-native-markdown-display": "^7.0.2",
+    "react-native-reanimated": "^4.0.0",
+    "zustand": "^5.0.6"
+  }
+}
